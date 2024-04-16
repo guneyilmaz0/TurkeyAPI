@@ -41,10 +41,4 @@ class TurkeyAPI {
             return response.data[0]
         }
     }
-    fun x(){
-        val province = getProvinceByName("Antalya")
-        val district = getDistrictByName("Antalya", "Muratpaşa")
-        print(province.id)
-        print(district.id)
-    }
 }
