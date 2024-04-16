@@ -15,7 +15,7 @@ import java.util.*
 class TurkeyAPI {
     companion object {
         @JvmStatic
-        fun getDistrictByName(provinceName: String, districtName: String): District {
+        fun getDistrictByName(@NotNull provinceName: String, @NotNull districtName: String): District {
             val province = getProvinceByName(provinceName)
             val finalDistrictName = districtName.lowercase(Locale.getDefault())
             return province.districts.stream().filter { district: District ->
@@ -40,5 +40,11 @@ class TurkeyAPI {
             val response = Gson().fromJson(responseBody, Response::class.java)
             return response.data[0]
         }
+    }
+    fun x(){
+        val province = getProvinceByName("Antalya")
+        val district = getDistrictByName("Antalya", "Muratpaşa")
+        print(province.id)
+        print(district.id)
     }
 }
